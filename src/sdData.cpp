@@ -129,3 +129,13 @@ void SD_Data :: writeData(File &dataFile, int32_t distance, String unixTime, flo
 {
     dataFile.printf("%s, %d, %f, %f, %d\n", unixTime, distance, temperature, humidity, hasFix);
 }
+
+/**
+ * @brief A method to close the current file and put the device to sleep
+ * 
+ * @param dataFile The file to close
+ */
+void SD_Data :: sleep(File &dataFile)
+{
+    dataFile.close();
+}
