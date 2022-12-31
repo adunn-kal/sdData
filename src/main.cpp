@@ -27,7 +27,7 @@ void setup()
   delay(2000);
 
   String uTime = "123";
-  myFile = myCard.createFile(1, 30, uTime, 60*1000);
+  myFile = myCard.createFile(1, 30, uTime);
   Serial.println("Done creating file");
 
 }
