@@ -62,15 +62,14 @@ void SD_Data :: writeHeader()
  * @param hasFix Whether or not the GPS has a fix
  * @param wakeCounter The number of wake cycles
  * @param time The current unix timestamp
- * @param sleep_time The time in which the device must sleep
  * @return The opened file
  */
-File SD_Data :: createFile(bool hasFix, uint32_t wakeCounter, String time, uint64_t sleep_time)
+File SD_Data :: createFile(bool hasFix, uint32_t wakeCounter, String time)
 {
     String fileName = "/Data/";
 
     // Filenames are at most 8 characters + 6("/Data/") + 4(".txt") + null terminator = 19
-    if (hasFix || sleep_time != 0) // If the gps has a fix, use its timestamp
+    if (hasFix) // If the gps has a fix, use its timestamp
     {
         fileName += String(time.toInt(), HEX);
         fileName += ".txt";
@@ -80,6 +79,7 @@ File SD_Data :: createFile(bool hasFix, uint32_t wakeCounter, String time, uint6
         fileName += String(wakeCounter, HEX);
         fileName += "_";
         fileName += String(millis(), HEX);
+        fileName += ".txt";
     }
 
     File file = SD.open(fileName, FILE_WRITE, true);

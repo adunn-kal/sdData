@@ -26,7 +26,7 @@ class SD_Data
         void writeHeader(void); ///< A method to check and format header files
 
         /// A method to open a new file
-        File createFile(bool hasFix, uint32_t wakeCounter, String time, uint64_t sleep_time);
+        File createFile(bool hasFix, uint32_t wakeCounter, String time);
 
         /// A method to write a log message
         void writeLog(String message, uint8_t month, uint8_t day,
