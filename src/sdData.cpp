@@ -127,7 +127,8 @@ void SD_Data :: writeLog(String message, uint8_t month, uint8_t day,
  */
 void SD_Data :: writeData(File &dataFile, int32_t distance, String unixTime, float temperature, float humidity, bool hasFix)
 {
-    dataFile.printf("%s, %d, %f, %f, %d\n", unixTime, distance, temperature, humidity, hasFix);
+    dataFile.print(unixTime);
+    dataFile.printf(", %d, %f, %f, %d\n", distance, temperature, humidity, hasFix);
 }
 
 /**
